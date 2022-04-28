@@ -1,38 +1,96 @@
+:root {
+  --background: #222;
+  --grid-color: #ccc;
+  --clr-1: #154857;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+
+.grid {
+  --grid-size: 500px;
+  width: var(--grid-size);
+  height: var(--grid-size);
+  background-color: var(--grid-color);
+  border-radius: 7px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.player {
+  color: var(--grid-color);
+  margin-top: 15px;
+  font-size: 28px;
+}
+
+.cell {
+  /* background-color: var(--clr-1); */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 45px;
+  font-weight: 800;
+  color: var(--background);
+}
+
+
+/* for grid lines */
+.horizontal-line,
+.vertical-line {
+  background-color: var(--background);
+  position: absolute;
+}
+
+.horizontal-line {
+  width: var(--grid-size);
+  height: 15px;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.horizontal-line-1 {
+  top: calc((var(--grid-size) / 3) * 1);
+}
+
+.horizontal-line-2 {
+  top: calc((var(--grid-size) / 3) * 2);
+}
+
+.vertical-line {
+  width: 15px;
+  height: var(--grid-size);
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.vertical-line-1 {
+  left: calc((var(--grid-size) / 3) * 1);
+}
+
+.vertical-line-2 {
+  left: calc((var(--grid-size) / 3) * 2);
+}
+
+@media screen and (max-width:720px) {
+  .grid {
+    --grid-size: 350px;
   }
 }
